@@ -10,7 +10,11 @@ achieving significant area and delay reduction over conventional array multiplie
 
 ## Block Diagram
 
-> _Add overall architecture block diagram here_
+## Project Architecture
+
+<p align="center">
+  <img src="images/architecture.png" width="800">
+</p>
 
 ---
 
