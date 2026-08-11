@@ -361,7 +361,7 @@ The testbench covers the following categories:
 
 | Group | Description                                         |
 |-------|-----------------------------------------------------|
-| 1     | Design case: 4.125 × 3.707 = 15.2914               |
+| 1     | Design case: 4.675 × 7.5 = 35.0625                 |
 | 2     | Identity / Unity: x × 1.0 = x                      |
 | 3     | Sign combinations: +×+, +×−, −×+, −×−              |
 | 4     | Powers of two: exact representations                |
