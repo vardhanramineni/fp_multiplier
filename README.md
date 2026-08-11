@@ -395,7 +395,10 @@ Design style: Purely combinational, single-cycle
 | DSP48 blocks         | 0            |
 | Target Platform      | Artix-7 FPGA |
 
-> _Add Vivado utilization report screenshot here_
+<p align="center">
+  <img src="images/utilization.png" width="500">
+</p>
+
 
 <p align="center">
   <img src="images/delay.png" width="500">
