@@ -81,7 +81,6 @@ The implicit leading `1` makes the true mantissa width **24 bits**.
 
 ## Architecture Overview
 
-> _Add detailed pipeline diagram here_
 
 The multiplier executes three parallel operations:
 
@@ -135,7 +134,9 @@ This is the critical datapath. The 24-bit unsigned mantissas (implicit leading 1
 prepended to the 23-bit fractional field) are multiplied to produce a 48-bit
 unsigned product. The architecture has five stages:
 
-> _Add mantissa multiplier block diagram here_
+<p align="center">
+  <img src="images/Mantissa_Mul.drawio.png" width="500">
+</p>
 
 ---
 
