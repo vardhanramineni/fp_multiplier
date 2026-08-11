@@ -340,6 +340,7 @@ fp_multiplier_dadda/
 └── README.md
 ```
 
+
 ---
 
 ## Simulation
@@ -350,11 +351,13 @@ fp_multiplier_dadda/
 
 # Run simulation
 vvp sim_fp
-```
+
+
 
 ### Test coverage
 
 The testbench covers the following categories:
+
 
 | Group | Description                                         |
 |-------|-----------------------------------------------------|
@@ -370,7 +373,9 @@ The testbench covers the following categories:
 | 10    | Denormal inputs: observed DUT behaviour             |
 
 
-<img src="images/simulation.png" width="500">
+<p align="center">
+  <img src="images/simulation.png" width="500">
+</p>
 
 
 
