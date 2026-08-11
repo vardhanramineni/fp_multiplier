@@ -404,23 +404,7 @@ Design style: Purely combinational, single-cycle
 
 ---
 
-## Test Case Walkthrough
 
-### 4.125 × 3.707 = 15.2914
-
-| Step                | Value                                      |
-|---------------------|--------------------------------------------|
-| A = 4.125           | `0x40840000` → S=0, E=129, M=0x040000     |
-| B = 3.707           | `0x406D3F7D` → S=0, E=128, M=0x6D3F7D    |
-| Sign                | 0 ⊕ 0 = **0** (positive)                 |
-| Exponent            | 129 + 128 − 127 = **130**                 |
-| Ma (24-bit)         | `1.00001000...` = 8650752                 |
-| Mb (24-bit)         | `1.11011010...` = 15548285                |
-| 48-bit product      | `0x7A54BC740000`                          |
-| After rounding      | mantissa = `0x74A978`                     |
-| Result              | `0x4174A978` = **15.2914**  ✓             |
-
----
 
 ## Tools Used
 
