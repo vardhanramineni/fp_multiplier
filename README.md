@@ -257,7 +257,7 @@ The tree is built entirely from `full_adder` and `half_adder` primitives using
 `generate`/`genvar` loops — fully structural, Vivado-synthesizable.
 
 <p align="center">
-  <img src="images/dadda_dot_diagram.png" width="500">
+  <img src="images/dot_diagram.jpeg" width="500">
 </p>
 
 ---
