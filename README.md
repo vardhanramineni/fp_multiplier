@@ -370,7 +370,7 @@ The testbench covers the following categories:
 | 10    | Denormal inputs: observed DUT behaviour             |
 
 <p align="center">
-  <img src="images/simulation.png" width="500">
+  <img src="images/dot_diagram.jpeg" width="500">
 </p>
 
 
