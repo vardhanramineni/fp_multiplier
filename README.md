@@ -13,7 +13,7 @@ achieving significant area and delay reduction over conventional array multiplie
 ## Project Architecture
 
 <p align="center">
-  <img src="images/architecture.png" width="800">
+  <img src="images/Copy of fpmul32.jpg.jpeg" width="800">
 </p>
 
 ---
