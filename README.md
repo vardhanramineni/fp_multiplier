@@ -203,7 +203,6 @@ and `neg` to determine whether selective complementation is applied:
 The `±2A` case is handled in the next stage by wire-routing rather than a barrel
 shifter, saving logic entirely.
 
-> _Add PPG circuit diagram here_
 
 ---
 
@@ -227,7 +226,6 @@ with 2 guard bits to absorb cascaded carry growth.
 A **sign-correction row** is added to account for the two's complement property
 of negated Booth partial products, giving **14 rows** in total entering the Dadda tree.
 
-> _Add partial product alignment dot diagram here_
 
 ---
 
@@ -258,7 +256,9 @@ Five compression stages:
 The tree is built entirely from `full_adder` and `half_adder` primitives using
 `generate`/`genvar` loops — fully structural, Vivado-synthesizable.
 
-> _Add Dadda dot diagram (5-stage compression) here_
+<p align="center">
+  <img src="images/dadda_dot_diagram.png" width="500">
+</p>
 
 ---
 
