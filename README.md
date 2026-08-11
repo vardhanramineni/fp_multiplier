@@ -179,8 +179,10 @@ two  =  (B_ext[2i+1] ^ B_ext[2i]) & (B_ext[2i+1] ^ B_ext[2i−1])
 non0 =  (B_ext[2i+1] ^ B_ext[2i]) | (B_ext[2i] ^ B_ext[2i−1])
 ```
 
-> _Add Booth encoder RTL schematic here_
 
+<p align="center">
+  <img src="images/booth_encoder.png" width="500">
+</p>
 ---
 
 #### 3.2 Partial Product Generator
