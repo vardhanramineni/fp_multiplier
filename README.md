@@ -369,9 +369,9 @@ The testbench covers the following categories:
 | 9     | Special cases: Zero, Inf, NaN, Inf×Zero             |
 | 10    | Denormal inputs: observed DUT behaviour             |
 
-<p align="center">
-  <img src="images/dot_diagram.jpeg" width="500">
-</p>
+
+<img src="images/simulation.png" width="500">
+
 
 
 ---
