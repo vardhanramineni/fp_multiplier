@@ -33,7 +33,6 @@ achieving significant area and delay reduction over conventional array multiplie
     - [Carry Propagate Adder](#35-carry-propagate-adder)
   - [Normalization Block](#4-normalization-block)
   - [Rounding Block](#5-rounding-block)
-  - [Special Case Handler](#6-special-case-handler)
 - [File Structure](#file-structure)
 - [Simulation](#simulation)
 - [Synthesis Results](#synthesis-results)
@@ -50,7 +49,6 @@ achieving significant area and delay reduction over conventional array multiplie
 - Bounded Dadda reduction tree constrained to **52-bit** datapath (41% narrower than conventional 88-bit designs)
 - Narrow 25-bit Partial Product Generator — eliminates redundant sign extensions
 - Wire-routed two-shift stage — zero-logic shift operation using hardwired concatenation
-- IEEE-754 special case handling: Zero, Infinity, NaN, Inf × Zero
 - Round-to-Nearest-Even rounding with guard, round, and sticky bits
 - Structural Verilog-2005 throughout — no behavioral `*` operator in the datapath
 - Verified on Xilinx Vivado 2023.2 targeting xc7a100tcsg324-1
@@ -310,25 +308,6 @@ Round-up condition:
 ```
 round_up = guard & (round | sticky | LSB_of_kept_mantissa)
 ```
-
----
-
-### 6. Special Case Handler
-
-**Module:** `special_case_handler.v`
-
-Detects and handles all IEEE-754 mandatory special cases before the normal
-datapath result is used:
-
-| Condition      | Result           |
-|----------------|------------------|
-| Zero × normal  | ±Zero            |
-| Zero × Zero    | +Zero            |
-| Inf × normal   | ±Inf             |
-| Inf × Inf      | ±Inf             |
-| Inf × Zero     | NaN (mandatory)  |
-| NaN × anything | NaN              |
-
 ---
 
 ## File Structure
@@ -346,7 +325,6 @@ fp_multiplier_dadda/
 │   ├── dadda_reduce.v               # Recursive Dadda reduction tree
 │   ├── normalization_block.v        # Post-multiply normalization
 │   ├── fp_rounding.v                # Round-to-Nearest-Even
-│   ├── special_case_handler.v       # Zero/Inf/NaN handling
 │   ├── full_adder.v                 # 1-bit full adder primitive
 │   ├── half_adder.v                 # 1-bit half adder primitive
 │   ├── ripple_carry_adder_8bit.v    # 8-bit RCA (exponent)
@@ -354,7 +332,6 @@ fp_multiplier_dadda/
 │   └── ripple_carry_subtractor_8bit.v  # 8-bit subtractor (exponent)
 │
 ├── tb/
-│   ├── tb_fp_multiplier.v           # Top-level FP multiplier testbench
 │   └── tb_mantissa.v                # Isolated mantissa multiplier testbench
 │
 ├── constraints/
@@ -369,29 +346,7 @@ fp_multiplier_dadda/
 
 ### Prerequisites
 
-- Icarus Verilog (`iverilog`) or Xilinx Vivado 2023.2 simulator
-
-### Run with Icarus Verilog
-
-```bash
-# Compile all sources + testbench
-iverilog -g2005 -o sim_fp \
-    tb/tb_fp_multiplier.v \
-    rtl/fp_multiplier_32bit.v \
-    rtl/mantissa_multiplier.v \
-    rtl/dadda_reduce.v \
-    rtl/booth_encoder.v \
-    rtl/pp_generator.v \
-    rtl/ripple_carry_adder_n.v \
-    rtl/full_adder.v \
-    rtl/half_adder.v \
-    rtl/exponent_adder.v \
-    rtl/ripple_carry_adder_8bit.v \
-    rtl/ripple_carry_subtractor_8bit.v \
-    rtl/sign_block.v \
-    rtl/normalization_block.v \
-    rtl/fp_rounding.v \
-    rtl/special_case_handler.v
+-  Xilinx Vivado 2023.2 simulator
 
 # Run simulation
 vvp sim_fp
@@ -414,7 +369,10 @@ The testbench covers the following categories:
 | 9     | Special cases: Zero, Inf, NaN, Inf×Zero             |
 | 10    | Denormal inputs: observed DUT behaviour             |
 
-> _Add simulation waveform screenshot here_
+<p align="center">
+  <img src="images/simulation.png" width="500">
+</p>
+
 
 ---
 
@@ -434,7 +392,10 @@ Design style: Purely combinational, single-cycle
 
 > _Add Vivado utilization report screenshot here_
 
-> _Add Vivado timing summary screenshot here_
+<p align="center">
+  <img src="images/delay.png" width="500">
+</p>
+
 
 ---
 
