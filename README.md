@@ -36,7 +36,6 @@ achieving significant area and delay reduction over conventional array multiplie
 - [File Structure](#file-structure)
 - [Simulation](#simulation)
 - [Synthesis Results](#synthesis-results)
-- [Test Case Walkthrough](#test-case-walkthrough)
 - [Tools Used](#tools-used)
 
 ---
@@ -395,11 +394,12 @@ Design style: Purely combinational, single-cycle
 | DSP48 blocks         | 0            |
 | Target Platform      | Artix-7 FPGA |
 
+### Utilization Report
 <p align="center">
   <img src="images/utilization.png" width="500">
 </p>
 
-
+### Timing Report 
 <p align="center">
   <img src="images/delay.png" width="500">
 </p>
